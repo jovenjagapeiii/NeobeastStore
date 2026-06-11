@@ -80,7 +80,7 @@ body {
        Adjust the file extension (.jpg, .png, .webp) to match your file exactly.
     */
     background: linear-gradient(180deg, rgba(10, 10, 12, 0.5) 0%, rgba(10, 10, 12, 0.85) 100%), 
-                url('/images/cyb_hero.jpg');
+                url('images/cyb_hero.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
