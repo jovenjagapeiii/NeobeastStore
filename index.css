@@ -1,0 +1,178 @@
+/* ==========================================================================
+   1. GLOBAL ARCHITECTURE & SYSTEM VARIABLES
+   ========================================================================== */
+:root {
+    --bg-dark: #0a0a0c;
+    --bg-black-pure: #030304;
+    --card-bg: rgba(20, 20, 25, 0.65);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-dark-gray: rgba(255, 255, 255, 0.15);
+    --neon-green: #39ff14;
+    --neon-glow: rgba(57, 255, 20, 0.25);
+    --text-main: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.6);
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Typography Extensions */
+.font-cyber {
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.07rem;
+}
+
+.text-neon { 
+    color: var(--neon-green) !important; 
+}
+
+.text-secondary-custom {
+    color: var(--text-muted) !important;
+}
+
+.tracking-wider {
+    letter-spacing: 0.15rem;
+}
+
+.transition-all {
+    transition: all 0.25s ease-in-out;
+}
+
+.border-secondary-dark {
+    border-color: var(--border-subtle) !important;
+}
+
+.bg-black-pure {
+    background-color: var(--bg-black-pure) !important;
+}
+
+/* Hover Transitions */
+.hover-neon:hover {
+    color: var(--neon-green) !important;
+}
+
+/* ==========================================================================
+   2. NAVBAR COMPONENT STYLING
+   ========================================================================== */
+.navbar {
+    background-color: rgba(10, 10, 12, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Handle active state text coloring */
+.navbar-nav .nav-link.active {
+    color: var(--neon-green) !important;
+    text-shadow: 0 0 8px var(--neon-glow);
+}
+
+/* ==========================================================================
+   3. HERO DISPLAY HERO SECTION
+   ========================================================================== */
+.hero-cyber-bg {
+    /* 
+       Combines a dark overlay gradient with your local asset.
+       Adjust the file extension (.jpg, .png, .webp) to match your file exactly.
+    */
+    background: linear-gradient(180deg, rgba(10, 10, 12, 0.5) 0%, rgba(10, 10, 12, 0.85) 100%), 
+                url('/images/cyb_hero.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.min-vh-75 {
+    min-height: 75vh;
+}
+
+@media (min-width: 992px) {
+    .min-vh-75 {
+        min-height: 85vh;
+    }
+}
+
+/* ==========================================================================
+   4. INTERACTIVE ACTIONS (BUTTONS & CONTROLS)
+   ========================================================================== */
+.btn-neon {
+    background: transparent;
+    color: var(--neon-green) !important;
+    border: 1px solid var(--neon-green) !important;
+    box-shadow: 0 0 8px var(--neon-glow);
+    transition: all 0.25s ease-in-out;
+}
+
+.btn-neon:hover,
+.btn-neon:focus,
+.btn-neon:active {
+    background: var(--neon-green) !important;
+    color: #000000 !important;
+    box-shadow: 0 0 20px var(--neon-green) !important;
+}
+
+/* Custom Cyber Fields */
+.form-control-cyber {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-subtle);
+    color: #ffffff !important;
+    transition: all 0.2s ease;
+}
+
+.form-control-cyber:focus {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: var(--neon-green);
+    box-shadow: 0 0 8px var(--neon-glow);
+}
+
+/* ==========================================================================
+   5. DEFENSIVE FLEX SYSTEM (PRODUCT CARDS)
+   ========================================================================== */
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-subtle);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.glass-card:hover {
+    border-color: var(--neon-green) !important;
+    box-shadow: 0 0 20px var(--neon-glow);
+    transform: translateY(-4px);
+}
+
+/* Image Container Frame to stabilize layout structures */
+.card-img-container {
+    width: 100%;
+    aspect-ratio: 3 / 4; /* Standard retail dimension constraints */
+    overflow: hidden;
+    background: #121216;
+}
+
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Forces unified crop layout metrics */
+    transition: transform 0.5s ease;
+}
+
+.glass-card:hover .card-img-container img {
+    transform: scale(1.04);
+}
+
+/* ==========================================================================
+   6. BOOTSTRAP SYSTEM PATCHES
+   ========================================================================== */
+.modal-content.glass-card {
+    border: 1px solid var(--border-dark-gray);
+}
+
+.btn-close-white {
+    filter: invert(1) grayscale(1) brightness(2);
+}
